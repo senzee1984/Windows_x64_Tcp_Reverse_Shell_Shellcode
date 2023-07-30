@@ -119,7 +119,7 @@ typedef struct _STARTUPINFOA {
 ```
 
 ## Change IP and Port
-To change the IP address, modify `line 162` of `reverse_shell.py`. The IP address is reversed and NEGed. According to the value of IP address, in rare cases (`255` is part of the address), 0x00 will exist. 
+To change the IP address, modify `line 162` of `reverse_shell.py`. The IP address is reversed and NEGed. According to the value of IP address, in rare cases (`255` is part of the address), 0x00 could exist. 
 
 ```WinDBG
 0:000> ? 0n45
