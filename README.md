@@ -118,6 +118,26 @@ typedef struct _STARTUPINFOA {
 } STARTUPINFOA, *LPSTARTUPINFOA;
 ```
 
+## Change IP and Port
+To change the IP address, modify `line 162` of `reverse_shell.py`. The IP address is reversed and NEGed. According to the value of IP address, in rare cases (`255` is part of the address), 0x00 will exist. 
+
+```WinDBG
+0:000> ? 0n45
+Evaluate expression: 45 = 00000000`0000002d
+0:000> ? 0n0
+Evaluate expression: 0 = 00000000`00000000
+0:000> ? 0n168
+Evaluate expression: 168 = 00000000`000000a8
+0:000> ? 0n192
+Evaluate expression: 192 = 00000000`000000c0
+0:000> ? -2d00a8c0
+Evaluate expression: -755017920 = ffffffff`d2ff5740
+```
+
+However, in most cases (none of the 4 parts of the IP address is `0`), we can directly set the IP address without the need to neg it.
+
+To change the listening port, modify `line 160` of `reverse-shell.py`. According to the value of the listening port, in rare cases, 0x00 could exist.
+
 
 
 
